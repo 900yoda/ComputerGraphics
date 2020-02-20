@@ -16,8 +16,8 @@ d = (y2 - yc) ** 2
 def main():
     f = (c*b - d*a) / (c-a)
     e = (f*a) / (f-b)
-    print(f)
-    print(e)
+    print(math.sqrt(f))
+    print(math.sqrt(e))
 
 if(__name__ == "__main__"):
     main()
