@@ -12,9 +12,6 @@ a = (x1 - xc) ** 2
 b = (y1 - yc) ** 2
 c = (x2 - xc) ** 2
 d = (y2 - yc) ** 2
-g = -d*a
-h = c*b
-i = a-c
 
 def main():
     f = (c*b - d*a) / (c-a)

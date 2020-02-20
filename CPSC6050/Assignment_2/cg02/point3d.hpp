@@ -18,6 +18,13 @@ class point3d {
   float y() const;
   float z() const;
 
+  void set_x(float x);
+  void set_y(float y);
+  void set_z(float z);
+
+  void set(float x, float y);
+  void set(float x, float y, float z);
+
   vector3d operator-(const point3d &p) const;
   point3d operator+(const vector3d &vec) const;
 

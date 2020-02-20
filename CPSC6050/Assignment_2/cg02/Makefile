@@ -4,8 +4,8 @@ CC=g++
 LD=$(CC)
 ## Flags
 CPPFLAGS = -Wall -g -DLINUX
-#-lXi -lXmu
-LFLAGS = -lglut -L/usr/lib -L/usr/X11R6/lib -lGL -lGLU -lm
+X11FLAGS = -L/usr/X11R6/lib -lXi -lXmu
+LFLAGS = -lglut -L/usr/lib -lGL -lGLU -lm
 
 TARGETS = $(PROGFILES:.cpp=)
 

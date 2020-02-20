@@ -16,6 +16,18 @@ class vector3d {
   float x() const;
   float y() const;
   float z() const;
+
+  void set_x(float x);
+  void set_y(float y);
+  void set_z(float z);
+
+  void set(float x, float y);
+  void set(float x, float y, float z);
+
   float magnitude() const;
+
+ private:
+  float calculate_magnitude() const;
+  void set_magnitude();
 };
 }  // namespace qunt

@@ -13,6 +13,21 @@ float point3d::y() const { return _y; }
 
 float point3d::z() const { return _z; }
 
+void point3d::set_x(float x) { _x = x; }
+
+void point3d::set_y(float y) { _y = y; }
+
+void point3d::set_z(float z) { _z = z; }
+
+void point3d::set(float x, float y) {
+  _x = x;
+  _y = y;
+}
+void point3d::set(float x, float y, float z) {
+  set(x, y);
+  _z = z;
+}
+
 vector3d point3d::operator-(const point3d &p) const {
   return vector3d(_x - p._x, _y - p._y, _z - p._z);
 }
