@@ -1,0 +1,89 @@
+#include <iostream>
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+
+const GLint WIDTH = 800, HEIGHT = 600;
+
+GLuint VAO, VBO, shader;
+
+void CreateTriangle() {
+    GLfloat verticies[] = {
+        -1.0f, -1.0f, 0.0f, 
+        1.0f, -1.0f, 0.0f,
+        0.0f, 1.0f, 0.0f
+    };
+
+    glGenVertexArrays(1, &VAO);
+    glBindVertexArray(VAO);
+
+    glGenBuffers(1, &VBO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(verticies), verticies, GL_STATIC_DRAW);
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+    glEnableVertexAttribArray(0);
+
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+    glBindVertexArray(0);
+
+}
+
+int main() {
+    //Initialize GLFW
+    if(!glfwInit()) {
+        std::cout << "Initialization Failed" << std::endl;
+        glfwTerminate();
+        return 1;
+    }
+
+    //setup GLFW window properties
+    // OpenGL version 3.3
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+
+    //means don't use deprecated code, no backwards compatibility
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    // allow forward compatibility
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+
+    GLFWwindow *mainWindow = glfwCreateWindow(WIDTH, HEIGHT, "Test Window", NULL, NULL);
+    if(!mainWindow) {
+        std::cout << "GLFW window creation failed" << std::endl;
+        glfwTerminate();
+        return 1;
+    }
+
+    //get buffer size information
+    int bufferWidth, bufferHeight;
+    glfwGetFramebufferSize(mainWindow, &bufferWidth, &bufferHeight);
+
+    // set the context for glew to use
+    glfwMakeContextCurrent(mainWindow);
+
+    // allow modern extention features
+    glewExperimental = GL_TRUE;
+
+    if(glewInit() != GLEW_OK) {
+        std::cout << "GLEW Initialization Failed" << std::endl;
+        glfwDestroyWindow(mainWindow);
+        glfwTerminate();
+        return 1;
+    }
+
+    //setup the viewport size
+    glViewport(0, 0, bufferWidth, bufferHeight);
+
+    // loop until the window closes
+    while(!glfwWindowShouldClose(mainWindow)) {
+        // get and handle user input events
+        glfwPollEvents();
+
+        // clear window
+        glClearColor(1.0f,0,0, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        glfwSwapBuffers(mainWindow);
+    }
+    return 0;
+}

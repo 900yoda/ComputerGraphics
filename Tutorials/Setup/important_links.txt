@@ -1,0 +1,7 @@
+https://stackoverflow.com/questions/17768008/how-to-build-install-glfw-3-and-use-it-in-a-linux-project
+
+http://glew.sourceforge.net/
+http://glew.sourceforge.net/install.html
+
+https://www.coders-hub.com/2013/05/how-to-install-openglglut-libraries-in.html
+

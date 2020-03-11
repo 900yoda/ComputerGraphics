@@ -361,7 +361,7 @@ void drawCubicBSpline(int* ptX, int* ptY, int controlPointCount) {
     points.emplace_back(ptX[i], ptY[i]);
   }
 
-  float dt = 1/100.0;
+  float dt = 1/200.0;
   for (float t = 0; t <= n; t+=dt) {
     float x = 0, y = 0;
 
