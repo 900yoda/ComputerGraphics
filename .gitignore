@@ -3,3 +3,4 @@
 .vscode
 **/cg*[0-9]/cg*[0-9]
 *.odt
+*.ods
