@@ -347,10 +347,6 @@ void keyboard(unsigned char key, int x, int y) {
     case 'v':
       swapMode();
       break;
-    case 27:  // ESC
-      if (currentMode == DRAW_POINTS) {
-      }
-      break;
     default:
       std::cout << (int)key << std::endl;
       break;
