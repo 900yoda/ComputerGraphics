@@ -279,7 +279,7 @@ void drawPoly(int ptX1, int ptY1, int ptX2, int ptY2) {
 }
 
 bool lessThanX(const qunt::point3d& p1, const qunt::point3d& p2) {
-  return p1.x() < p2.x();
+  return p1.y() < p2.y();
 }
 
 void drawQuinticBezier(int* ptX, int* ptY) {
@@ -362,12 +362,12 @@ void drawCubicBSpline(int* ptX, int* ptY, int controlPointCount) {
   }
 
   float dt = 1/200.0;
-  for (float t = 0; t <= n; t+=dt) {
+  for (float t = 4; t <= n; t+=dt) {
     float x = 0, y = 0;
 
     int i = t - 4;
-    if(i < 0)
-      continue;
+    //if(i < 0)
+    //  continue;
 
     for (int j = 0; j <= 4; j++) {
       float constVal = basisFunction(i, t);
